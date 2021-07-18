@@ -1,0 +1,9 @@
+{{- $curPage := .Page -}}
+{{- $curSite := .Site -}}
+{{- $basePage := .basePage -}}
+{{- $baseSite := .baseSite -}}
+{{- with $curPage -}}
+<div class="details-debug-hugo debug-current-hugo">
+    <span class="summary-debug-hugo">{{ if .Site.Title }}{{ .Site.Title }}{{ else }}Untitled Site{{ end }}</span>
+</div>
+{{- end -}}

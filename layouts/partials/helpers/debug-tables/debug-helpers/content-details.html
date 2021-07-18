@@ -1,0 +1,16 @@
+{{- $content := .Content }}
+{{- $preformatted := .pre }}
+<details class="details-debug-hugo debug-content-hugo">
+    <summary class="summary-debug-hugo">{{ if $content }}{{ len $content }}{{ else }}0{{end}} characters</summary>
+{{- with $content -}}
+{{- if $preformatted }}
+    <pre class="pre-debug-hugo">
+    {{- end }}
+        <code class="code-debug-hugo">
+        {{- . | htmlEscape | safeHTML -}}
+        </code>
+    {{- if $preformatted }}
+    </pre>
+{{- end }}
+{{- end }}
+</details>

@@ -1,0 +1,9 @@
+{{- $tableVals := (dict) -}}
+    {{- $tableVals = (dict
+        "hugo.BuildDate" hugo.BuildDate
+        "hugo.CommitHash" hugo.CommitHash
+        "hugo.Environment" hugo.Environment
+        "hugo.Generator" (partial "helpers/debug-tables/debug-helpers/content-details" (dict "Content" hugo.Generator "pre" true))
+        "hugo.Version" hugo.Version
+    ) -}}
+{{- partial "helpers/debug-tables/tables/table-html" $tableVals }}

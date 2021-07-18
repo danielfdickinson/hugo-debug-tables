@@ -1,0 +1,10 @@
+{{- $curPage := .Page -}}
+{{- $curSite := .Site -}}
+{{- $basePage := .basePage -}}
+{{- $baseSite := .baseSite -}}
+{{- $expandPage := .expandPage -}}
+<div class="list-debug-hugo debug-pages-hugo">
+    {{- range .Pages -}}
+        {{- partial "helpers/debug-tables/debug-helpers/return-page-details" (dict "Page" . "basePage" $basePage "Site" $curSite "baseSite" $baseSite ) -}}
+    {{- end -}}
+</div>

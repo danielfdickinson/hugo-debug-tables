@@ -1,0 +1,41 @@
+{{- $curCtx := . -}}
+{{- $value := .value -}}
+{{- $key := .key -}}
+{{- if $key -}}
+    {{- if reflect.IsMap $value }}
+        <details class="details-debug-hugo">
+            <summary class="summary-debug-hugo">{{- $key }}: {{ len $value -}}</summary>
+            <div class="list-debug-hugo">
+                {{- range $key2, $value2 := $value -}}
+                    {{- partial "helpers/debug-tables/debug-helpers/expand-var" (dict "key" $key2 "value" $value2) }}
+                {{- end }}
+            </div>
+            </details>
+    {{- else if reflect.IsSlice $value }}
+        <details class="details-debug-hugo">
+            <summary class="summary-debug-hugo">{{- $key }}: {{ len $value -}}</summary>
+                <div class="list-debug-hugo">
+                    {{- range $value -}}
+                        {{- partial "helpers/debug-tables/debug-helpers/expand-item" . -}}
+                    {{- end }}
+                </div>
+        </details>
+    {{ else -}}
+            <div class="list-item-debug-hugo">{{ $key }}: {{ $value }}</div>
+    {{- end -}}
+{{- else -}}
+    {{- if reflect.IsSlice $value -}}
+        {{- partial "helpers/debug-tables/debug-helpers/expand-item" $value -}}
+    {{- else if reflect.IsMap $value }}
+        <details class="details-debug-hugo">
+            <summary class="summary-debug-hugo">{{- $key }}: {{ len $value -}}</summary>
+                {{- partial "helpers/debug-tables/debug-helpers/expand-item" $value }}
+        </details>
+    {{- else -}}
+        {{- if $key }}
+            <div class="list-item-debug-hugo">{{ $key }}: {{ $value }}</div>
+        {{- else }}
+            <div class="list-item-debug-hugo">{{ $value }}</div>
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

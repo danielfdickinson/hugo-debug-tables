@@ -1,0 +1,37 @@
+{{- $titleFound := "Untitled: Path(unknown)" -}}
+{{- if .File -}}
+  {{- $titleFound = printf "Untitled: Path(%s)" .File.Path -}}
+{{- end -}}
+{{- if .Title  -}}
+  {{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+    {{- if .Data.Terms -}}
+      {{- $titleFound = .Title -}}
+    {{- else if .Data.Singular -}}
+      {{- $titleFound = printf "%s: %s"
+        (.Data.Singular | humanize) (.Title | singularize | title) -}}
+    {{- else -}}
+      {{- $titleFound = .Title -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $titleFound = .Title -}}
+  {{- end -}}
+{{- else -}}
+  {{- if .File -}}
+    {{- if and (.File.TranslationBaseName) (ne .File.TranslationBaseName "_index") -}}
+      {{- $titleFound = .File.TranslationBaseName | title -}}
+    {{- else if eq .Kind "home" -}}
+      {{- if .Site.Title -}}
+        {{- $titleFound = .Site.Title -}}
+      {{- else -}}
+        {{- $titleFound = "Unnamed Site" -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if eq .Kind "home" -}}
+    {{- if .Site.Title -}}
+      {{- $titleFound = .Site.Title -}}
+    {{- else -}}
+      {{- $titleFound = "Unnamed Site" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $titleFound -}}

@@ -1,0 +1,3 @@
+{{- if in (default (slice "development") (.Param "debugTableEnvironment")) hugo.Environment }}
+    <link rel="stylesheet" href="/css/demo-css-hugo-debug-tables.css" />
+{{- end }}

@@ -1,0 +1,36 @@
+{{- $curPage := .Page -}}
+{{- $curSite := .Site -}}
+{{- $basePage := .basePage -}}
+{{- $baseSite := .baseSite -}}
+{{- if not $basePage -}}
+  {{- $basePage = $curPage -}}
+{{- end -}}
+{{- if not $baseSite -}}
+  {{- $baseSite = $curSite -}}
+{{- end -}}
+{{- with $curPage -}}
+    {{- $dataPages := "" -}}
+    {{- $dataTerms := "" -}}
+    {{- with .Data.Pages -}}
+        {{- if not (or $curPage.IsSection $curPage.IsHome) -}}
+            {{- $baseDataPages := partial "helpers/debug-tables/debug-page-list" (dict "Pages" . "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite) -}}
+            {{- if gt (len .) 0 -}}
+                {{- $dataPages = (printf "\n            <details class=\"details-debug-hugo\">\n                <summary class=\"summary-debug-hugo\">%d\n                </summary>%s\n            </details>" (len .) $baseDataPages ) | safeHTML -}}
+            {{- else -}}
+                {{- $dataPages = "" -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $dataTerms := "" -}}
+    {{- with .Data.Terms -}}
+        {{- $dataTerms = partial "helpers/debug-tables/debug-helpers/expand-item" . -}}
+    {{- end -}}
+    {{- $tableVals := (dict
+        ".Data.Singular" .Data.Singular
+        ".Data.Plural" .Data.Plural
+        ".Data.Pages" $dataPages
+        ".Data.Terms" $dataTerms
+        "See Also" ".Site.Taxonomies"
+    ) -}}
+    {{- partial "helpers/debug-tables/tables/table-html" $tableVals }}
+{{- end }}

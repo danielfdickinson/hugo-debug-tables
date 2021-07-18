@@ -1,0 +1,9 @@
+{{- $curPage := .Page -}}
+{{- $basePage := .basePage -}}
+{{- $curSite := .Site -}}
+{{- $baseSite := .baseSite -}}
+{{- with $curPage -}}
+    <div class="details-debug-hugo">
+        <span class="summary-debug-hugo {{if eq . $basePage }}debug-current-hugo{{ end }}">{{ partial "helpers/debug-tables/debug-helpers/return-page-title" . -}}</span>
+    </div>
+{{- end }}

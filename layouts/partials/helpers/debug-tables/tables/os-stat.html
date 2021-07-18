@@ -1,0 +1,25 @@
+{{- $curPage := .Page -}}
+{{- $curSite := .Site -}}
+{{- $basePage := .basePage -}}
+{{- $baseSite := .baseSite -}}
+{{- with $curPage -}}
+    {{- $tableVals := (dict) -}}
+    {{- with .File -}}
+        {{- $path := print "content/" .Path -}}
+        {{- $osStatPath := os.Stat $path -}}
+        {{- with $osStatPath -}}
+            {{- $tableVals = (dict
+                ".IsDir" .IsDir
+                ".Mode" .Mode
+                ".ModTime" .ModTime
+                ".Name" .Name
+                ".Size (bytes)" .Size
+            ) -}}
+        {{- end -}}
+    {{- else -}}
+        {{- $tableVals = (dict
+            "Virtual page (no content file)" true
+     ) -}}
+    {{- end -}}
+    {{- partial "helpers/debug-tables/tables/table-html" $tableVals }}
+{{- end }}

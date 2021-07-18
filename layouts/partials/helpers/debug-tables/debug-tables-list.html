@@ -1,0 +1,37 @@
+{{- if in (default (slice "development") (.Page.Param "debugTableEnvironment")) hugo.Environment -}}
+{{- $curPage := .Page -}}
+{{- $basePage := .Page -}}
+{{- $curSite := .Site -}}
+{{- $baseSite := .Site -}}
+<section class="section-debug-hugo debug-variables-hugo" aria-label="Hugo Debug Section">
+    <details class="details-debug-hugo">
+        <summary class="summary-debug-hugo">Hugo Debug Table</summary>
+        <div class="list-debug-hugo debug-tables">
+{{- $tablesToShow := (slice "page") -}}
+{{- $tablesToShow = $tablesToShow | append "section" -}}
+{{- $tablesToShow = $tablesToShow | append "file" -}}
+{{- if in (slice "taxonomy" "term") $curPage.Kind -}}
+    {{- $tablesToShow = $tablesToShow | append "taxonomy" -}}
+{{- end -}}
+{{- $tablesToShow = $tablesToShow | append "site" -}}
+{{- $tablesToShow = $tablesToShow | append "hugo" -}}
+{{- if $curPage.File -}}
+    {{- $tablesToShow = $tablesToShow | append "os-stat" -}}
+{{- end -}}
+{{- range $tablesToShow }}
+            <details class="details-debug-hugo">
+              <summary class="summary-debug-hugo">{{ if ne . "os-stat" }}{{ . | humanize | title }}{{ else }}os.Stat{{ end }}</summary>
+    {{- partial (printf "helpers/debug-tables/tables/%s" .) (dict "Page" $curPage "basePage" $basePage "Site" $curSite  "baseSite" $baseSite ) }}
+            </details>
+{{- end }}
+            <details class="details-debug-hugo debug-acknowledgements-hugo">
+                <summary class="summary-debug-hugo">Acknowledgements</summary>
+                <div class="list-debug-hugo">
+                    <p class="list-item-debug-hugo"><i>Idea for debug table and initial HTML source from <a href="https://raw.githubusercontent.com/zwbetz-gh/starter-hugo-debug-site/master/layouts/partials/debug-table.html">zwbetz-gh/starter-hugo-debug-site debug-table</a></i></p>
+                    <p class="list-item-debug-hugo"><i>Current version from <a href="https://github.com/danielfdickinson/hugo-debug-tables">github.com/danielfdickinson/hugo-debug-tables</a></i></p>
+                </div>
+            </details>
+        </div>
+    </details>
+</section>
+{{ end }}

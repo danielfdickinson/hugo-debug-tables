@@ -1,0 +1,39 @@
+{{- $curPage := .Page -}}
+{{- $curSite := .Site -}}
+{{- $basePage := .basePage -}}
+{{- $baseSite := .baseSite -}}
+{{- with $curSite -}}
+    {{- $tableVals := (dict
+        ".AllPages" (partial "helpers/debug-tables/debug-helpers/return-pages-details" (dict
+            "Pages" .AllPages "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite))
+        ".Author" (partial "helpers/debug-tables/debug-helpers/expand-item" .Author)
+        ".BaseURL" .BaseURL
+        ".BuildDrafts" .BuildDrafts
+        ".Copyright" .Copyright
+        ".DisqusShortname" .DisqusShortname
+        ".GoogleAnalytics" .GoogleAnalytics
+        ".Home" (partial "helpers/debug-tables/debug-helpers/return-page-details" (dict
+             "Page" .Home "basePage" $basePage "Site" $curSite "baseSite" $baseSite))
+        ".IsMultiLingual" .IsMultiLingual
+        ".IsServer" .IsServer
+        ".Language.Lang" .Language.Lang
+        ".Language.LanguageName" .Language.LanguageName
+        ".Language.Weight" .Language.Weight
+        ".Language"  (partial "helpers/debug-tables/debug-helpers/expand-item" .Language)
+        ".LanguageCode" .LanguageCode
+        ".LanguagePrefix" .LanguagePrefix
+        ".Languages" (partial "helpers/debug-tables/debug-helpers/expand-item" .Languages)
+        ".LastChange" .LastChange.Local
+        ".Menus" (partial "helpers/debug-tables/tables/menus" .Menus)
+        ".Pages" (partial "helpers/debug-tables/debug-helpers/return-pages-details" (dict
+            "Pages" .Pages "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite))
+        ".Params" (partial "helpers/debug-tables/debug-helpers/expand-item" .Params)
+        ".RegularPages" (partial "helpers/debug-tables/debug-helpers/return-pages-details" (dict
+            "Pages" .RegularPages "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite))
+        ".Sections" (partial "helpers/debug-tables/debug-helpers/return-pages-details" (dict
+            "Pages" .Sections "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite))
+        ".Taxonomies" (partial "helpers/debug-tables/debug-helpers/expand-item" .Taxonomies)
+        ".Title" .Title
+    ) -}}
+    {{- partial "helpers/debug-tables/tables/table-html" $tableVals }}
+{{ end }}

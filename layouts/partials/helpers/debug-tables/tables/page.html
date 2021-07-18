@@ -1,0 +1,63 @@
+{{- $curPage := .Page -}}
+{{- $curSite := .Site -}}
+{{- $basePage := .basePage -}}
+{{- $baseSite := .baseSite -}}
+{{- with $curPage -}}
+    {{- $tableVals := (dict
+        ".AlternativeOutputFormats" (partial "helpers/debug-tables/debug-helpers/expand-item" .AlternativeOutputFormats)
+        ".Aliases" (partial "helpers/debug-tables/debug-helpers/expand-item" .Aliases)
+        ".Content"  (partial "helpers/debug-tables/debug-helpers/content-details" (dict "Content" .Content "pre" true))
+        ".Date" ( .Date.Local)
+        ".Description" (.Description | htmlEscape | safeHTML)
+        ".Draft" .Draft
+        ".ExpiryDate" .ExpiryDate.Local
+        ".FuzzyWordCount" .FuzzyWordCount
+        ".IsHome" .IsHome
+        ".IsNode" .IsNode
+        ".IsPage" .IsPage
+        ".IsSection" .IsSection
+        ".IsTranslated" .IsTranslated
+        ".Keywords" (partial "helpers/debug-tables/debug-helpers/expand-item" .Keywords)
+        ".Kind" .Kind
+        ".Language" .Language
+        ".Lastmod" .Lastmod.Local
+        ".LinkTitle" .LinkTitle
+        ".Next" (cond (ne .Next nil) (partial "helpers/debug-tables/debug-helpers/return-page-details" (dict
+            "Page" .Next "basePage" $basePage "Site" $curSite "baseSite" $baseSite)) (""))
+        ".NextInSection" (cond (ne .NextInSection nil) (partial "helpers/debug-tables/debug-helpers/return-page-details" (dict
+            "Page" .NextInSection "basePage" $basePage "Site" $curSite "baseSite" $baseSite)) (""))
+        ".OutputFormats"  (partial "helpers/debug-tables/debug-helpers/expand-item" .OutputFormats)
+        ".Pages" (partial "helpers/debug-tables/debug-helpers/return-pages-details" (dict
+            "Pages" .Pages "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite))
+        ".Permalink" .Permalink
+        ".Plain" (partial "helpers/debug-tables/debug-helpers/content-details"  (dict "Content" .Plain "pre" false))
+        ".PlainWords" (partial "helpers/debug-tables/debug-helpers/expand-item" (.PlainWords | sort))
+        ".Params" (partial "helpers/debug-tables/debug-helpers/expand-item" .Params)
+        ".Prev" (cond (ne .Prev nil) (partial "helpers/debug-tables/debug-helpers/return-page-details" (dict
+            "Page" .Prev "basePage" $basePage "Site" $curSite "baseSite" $baseSite)) (""))
+        ".PrevInSection" (cond (ne .PrevInSection nil) (partial "helpers/debug-tables/debug-helpers/return-page-details" (dict
+            "Page" .PrevInSection "basePage" $basePage "Site" $curSite "baseSite" $baseSite)) (""))
+        ".PublishDate" .PublishDate.Local
+        ".RawContent"  (partial "helpers/debug-tables/debug-helpers/content-details"  (dict "Content" .RawContent "pre" true))
+        ".ReadingTime" .ReadingTime
+        ".Resources" (partial "helpers/debug-tables/debug-helpers/expand-item" .Resources)
+        ".RelPermalink" .RelPermalink
+        ".Site" (partial "helpers/debug-tables/debug-helpers/site-details" (dict
+            "Page" $curPage "basePage" $basePage "Site" .Site "baseSite" $baseSite))
+        ".Sites" (partial "helpers/debug-tables/debug-helpers/sites-details" (dict
+            "Page" $curPage "basePage" $basePage "Site" $curSite "Sites" .Sites "baseSite" $baseSite))
+        ".Sites.First" (partial "helpers/debug-tables/debug-helpers/site-details" (dict
+        "Page" $curPage "basePage" $basePage "Site" .Sites.First "baseSite" $baseSite))
+        ".Summary" (partial "helpers/debug-tables/debug-helpers/content-details"  (dict "Content" .Summary "pre" false))
+        ".TableOfContents" (partial "helpers/debug-tables/debug-helpers/content-details"  (dict "Content" .TableOfContents "pre" true))
+        ".Title" (.Title | htmlEscape | safeHTML)
+        ".Translations" (partial "helpers/debug-tables/debug-page-list" (
+            dict "Pages" .Translations "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite))
+        ".TranslationKey" .TranslationKey
+        ".Truncated" .Truncated
+        ".Type" .Type
+        ".Weight" .Weight
+        ".WordCount" .WordCount
+    ) -}}
+    {{- partial "helpers/debug-tables/tables/table-html" $tableVals }}
+{{ end }}

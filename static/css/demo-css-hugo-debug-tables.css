@@ -1,0 +1,231 @@
+.section-debug-hugo {
+    border: none;
+    padding-top: .8em;
+}
+
+.details-debug-hugo {
+    border: none;
+    margin-bottom: .5em;
+    margin-top: 2px;
+    padding: .4em;
+}
+
+.details-debug-hugo .details-debug-hugo {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.details-debug-hugo {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li.details-debug-hugo > span.summary-debug-hugo {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+.list-debug-hugo {
+    padding-left: 0;
+}
+
+.table-cell-debug-value-hugo .details-debug-hugo {
+    padding: 0;
+}
+
+.debug-variables-hugo > .details-debug-hugo > .summary-debug-hugo {
+    border-bottom-style: none;
+    margin-bottom: 3px;
+    opacity: .3;
+}
+
+.debug-variables-hugo > .details-debug-hugo[open] {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.debug-variables-hugo > .details-debug-hugo[open] > .summary-debug-hugo {
+    border-bottom: 3px ridge;
+    border-top: 3px ridge;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 1;
+    padding: initial;
+    padding-bottom: .5em;
+    padding-top: .5em;
+}
+
+.debug-variables-hugo > .details-debug-hugo[open] > .list-debug-hugo > .details-debug-hugo > .summary-debug-hugo {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.details-debug-hugo .details-debug-hugo > .summary-debug-hugo {
+    border: none;
+    margin-bottom: 8px;
+    margin-top: 5px;
+    padding-bottom: .8em;
+    padding-left: .4em;
+    padding-right: .4em;
+    padding-top: .8em;
+}
+
+.details-debug-hugo .details-debug-hugo[open] > .summary-debug-hugo {
+    border-bottom: 0 none;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-top: 2px solid;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-right: 1px;
+    padding-bottom: .8em;
+}
+
+.debug-variables-hugo > .details-debug-hugo[open] > .list-debug-hugo > .details-debug-hugo[open] > .summary-debug-hugo {
+    padding-bottom: .8em;
+    padding-top: .8em;
+}
+
+.details-debug-hugo .details-debug-hugo .list-debug-hugo > .list-item-debug-hugo {
+    list-style-type: initial;
+    list-style-position: inside;
+    padding-left: .2em;
+}
+
+.details-debug-hugo .details-debug-hugo .list-debug-hugo > .details-debug-hugo {
+    display: list-item;
+    list-style-type: none;
+    margin-bottom: initial;
+    margin-left: initial;
+    margin-top: initial;
+    padding: initial;
+}
+
+.details-debug-hugo .details-debug-hugo .list-debug-hugo > .details-debug-hugo > .list-debug-hugo {
+    display: block;
+    margin-bottom: initial;
+    margin-left: initial;
+    margin-top: initial;
+    padding: initial;
+}
+
+.details-debug-hugo .details-debug-hugo .list-debug-hugo > .details-debug-hugo > .list-item-debug-hugo {
+    display: list-item;
+    list-style-type: none;
+    margin-bottom: initial;
+    margin-left: initial;
+    margin-top: initial;
+    padding: initial;
+}
+
+.table-cell-debug-hugo > .details-debug-hugo {
+    margin: 0;
+    padding: 0;
+}
+
+.details-debug-hugo[open] .table-cell-debug-hugo {
+    border-left: 2px solid;
+    border-top: 2px solid;
+    padding: .4em;
+    width: 100%;
+}
+
+.table-row-debug-hugo:last-of-type > .table-cell-debug-hugo {
+    border-bottom: 2px solid;
+}
+
+.table-row-debug-hugo:last-of-type > .table-cell-head-debug-hugo {
+    border-bottom: 2px solid;
+}
+
+.table-cell-head-debug-hugo {
+    border-left: 2px solid;
+    border-top: 2px solid;
+    font-style: italic;
+    font-weight: normal;
+    padding: .4em;
+    text-align: left;
+    vertical-align: top;
+}
+
+.table-debug-hugo {
+    border-collapse: collapse;
+    border-right: 2px solid;
+    margin-bottom: 1em;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table-debug-hugo .table-cell-head-debug-hugo {
+    max-width: 14em;
+    min-width: 10em;
+    width: 14em;
+}
+
+.list-debug-hugo {
+    margin-bottom: 1em;
+}
+
+.details-debug-hugo .details-debug-hugo .table-cell-debug-hugo .list-debug-hugo:empty {
+    border: none;
+    max-width: initial;
+}
+
+.details-debug-hugo .table-cell-debug-hugo .details-debug-hugo {
+    margin: 0;
+}
+
+.details-debug-hugo .table-cell-debug-hugo .details-debug-hugo > .summary-debug-hugo {
+    margin: 0;
+    padding: 0;
+}
+
+.details-debug-hugo[open] > .table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .table-debug-table {
+    background-color: #fff;
+}
+
+.details-debug-hugo[open] > .table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .details-debug-hugo[open] {
+    background-color: #fff;
+    border: 0 none;
+}
+
+.details-debug-hugo .table-cell-debug-hugo .details-debug-hugo[open] > .summary-debug-hugo {
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.details-debug-hugo .details-debug-hugo .details-debug-hugo > .summary-debug-hugo {
+    border: none;
+    padding-bottom: 0;
+}
+
+.details-debug-hugo .details-debug-hugo .details-debug-hugo[open] > .summary-debug-hugo {
+    border-bottom: 2px dotted;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.details-debug-hugo .details-debug-hugo .details-debug-hugo[open] > .list-debug-hugo {
+    margin-bottom: .2em;
+    padding-left: 1em;
+}
+
+.details-debug-hugo .details-debug-hugo .details-debug-hugo[open] > .list-debug-hugo .list-debug-hugo .list-item-debug-hugo {
+    margin-left: initial;
+    padding-left: 1em;
+}
+
+.details-debug-hugo[open] .details-debug-hugo[open] .details-debug-hugo[open] .code-debug-hugo {
+    background-color: #ddd;
+    display: block;
+}
+
+.details-debug-hugo[open] .debug-menus-hugo .list-item-debug-hugo {
+    list-style-type: none;
+}

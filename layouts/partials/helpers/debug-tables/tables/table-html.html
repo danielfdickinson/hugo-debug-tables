@@ -1,0 +1,11 @@
+{{/* Expects a dictionary of key value pairs to emit */}}
+{{- if reflect.IsMap . }}
+<table class="table-debug-hugo">
+    {{- range $key, $value := . }}
+    <tr class="table-row-debug-hugo">
+        <th class="table-cell-head-debug-hugo">{{- $key -}}</th>
+        <td class="table-cell-debug-hugo">{{ $value }}</td>
+    </tr>
+    {{- end }}
+</table>
+{{- end }}

@@ -1,0 +1,8 @@
+<table>
+    {{- range (slice "IsDir" "Mode" "ModTime" "Name" "Size") }}
+    <tr>
+        <td>.{{ . }}</td>
+        <td></td>
+    </tr>
+    {{- end }}
+</table>
