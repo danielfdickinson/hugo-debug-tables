@@ -129,7 +129,7 @@ li.details-debug-hugo > span.summary-debug-hugo {
     padding: 0;
 }
 
-.details-debug-hugo[open] .table-cell-debug-hugo {
+.table-cell-debug-hugo {
     border-left: 2px solid;
     border-top: 2px solid;
     padding: .4em;
@@ -172,30 +172,30 @@ li.details-debug-hugo > span.summary-debug-hugo {
     margin-bottom: 1em;
 }
 
-.details-debug-hugo .details-debug-hugo .table-cell-debug-hugo .list-debug-hugo:empty {
+.table-cell-debug-hugo .list-debug-hugo:empty {
     border: none;
     max-width: initial;
 }
 
-.details-debug-hugo .table-cell-debug-hugo .details-debug-hugo {
+.table-cell-debug-hugo .details-debug-hugo {
     margin: 0;
 }
 
-.details-debug-hugo .table-cell-debug-hugo .details-debug-hugo > .summary-debug-hugo {
+.table-cell-debug-hugo .details-debug-hugo > .summary-debug-hugo {
     margin: 0;
     padding: 0;
 }
 
-.details-debug-hugo[open] > .table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .table-debug-table {
+.table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .table-debug-table {
     background-color: #fff;
 }
 
-.details-debug-hugo[open] > .table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .details-debug-hugo[open] {
+.table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .details-debug-hugo[open] {
     background-color: #fff;
     border: 0 none;
 }
 
-.details-debug-hugo .table-cell-debug-hugo .details-debug-hugo[open] > .summary-debug-hugo {
+.table-cell-debug-hugo .details-debug-hugo[open] > .summary-debug-hugo {
     margin: 0;
     margin-bottom: 4px;
 }
