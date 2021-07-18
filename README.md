@@ -9,7 +9,7 @@ This module is built using assumptions that may require Hugo 0.81.0 or higher, a
 
 ## Acknowledgements
 
-Idea and initial HTML source from
+Idea and initial HTML sources from
 [zwbetz-gh/starter-hugo-debug-site debug-table](https://github.com/zwbetz-gh/starter-hugo-debug-site/blob/master/layouts/partials/debug-table.html)
 
 ## Using in Your Theme or Site
