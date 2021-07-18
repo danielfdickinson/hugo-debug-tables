@@ -78,18 +78,18 @@ Note that for the shortcode, only ``.RawContent`` renders, not ``.Content``, ``.
    ```toml
    [module]
      [[module.imports]]
-        path = "github.com/danielfdickinson/hugoDebugTables"
+        path = "github.com/danielfdickinson/hugo-debug-tables"
    ```
 3. Change back to the site directory
 4. Get the module
    ```
-   hugo mod get github.com/danielfdickinson/hugoDebugTables
+   hugo mod get github.com/danielfdickinson/hugo-debug-tables
    ```
 5. Add the code (above) for using the tables to your source code.
 
 ### Using downloaded copy of the module (e.g. Zip from the Git repo)
 
-1. Obtain a copy of the module e.g. ([a module Zip file from the Git repo](https://github.com/danielfdickinson/hugoDebugTables/archive/refs/head/master.zip))
+1. Obtain a copy of the module e.g. ([a module Zip file from the Git repo](https://github.com/danielfdickinson/hugo-debug-tables/archive/refs/head/master.zip))
 2. Copy/extract the files in the archive into the root of your site or theme (archives contain /layouts and subdirectories under it).
 3. Change back to the site directory
 
