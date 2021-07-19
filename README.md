@@ -102,7 +102,7 @@ Note that for the shortcode, only ``.RawContent`` renders, not ``.Content``, ``.
 
 ### Using downloaded copy of the module (e.g. Zip from the Git repo)
 
-1. Obtain a copy of the module e.g. ([a module Zip file from the Git repo](https://github.com/danielfdickinson/hugo-debug-tables/archive/refs/head/master.zip))
+1. Obtain a copy of the module e.g. ([a module Zip file from the Git repo](https://github.com/danielfdickinson/hugo-debug-tables/archive/refs/head/main.zip))
 2. Copy/extract the files in the archive into the root of your site or theme (archives contain /layouts and subdirectories under it).
 3. Change back to the site directory
 
