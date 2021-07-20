@@ -84,10 +84,8 @@ Note that for the shortcode, only ``.RawContent`` renders, not ``.Content``, ``.
 
 ### Using Hugo Modules (preferred)
 
-**NB** Due to limitations of Hugo modules when it comes to repo locations this is a bit of a mess at the moment; it will be cleaned up sometime "Real Soon Now" for this repo, as moving and renaming has caused some grief.
-
 1. Initialize the Hugo module system: ``hugo mod init github.com/<your_user>/<your_project>`` (assuming you are using github, of course).
-2. Import hugDebugTables in your ``config.html``
+2. Import hugo-debug-tables in your ``config.toml``
    ```toml
    [module]
      [[module.imports]]
