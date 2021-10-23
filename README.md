@@ -1,6 +1,10 @@
 # Hugo Debug Tables
 
-## Bare Bones Demo Site
+## Status
+
+TBD
+
+## Demo Site
 
 <https://hugo-test-debug-tables.wildtechgarden.ca>
 
