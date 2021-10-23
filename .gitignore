@@ -9,3 +9,4 @@ node_modules
 # For keeping the .env file around when not using it
 /.disabled-env
 /_vendor
+/public
