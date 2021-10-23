@@ -2,7 +2,7 @@
 
 ## Status
 
-TBD
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5371be80-0b6b-4998-861a-35a441bac6d9/deploy-status)](https://app.netlify.com/sites/hugo-test-debug-tables/deploys)
 
 ## Demo Site
 
