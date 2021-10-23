@@ -21,7 +21,7 @@
 {{- range $tablesToShow }}
             <details class="details-debug-hugo">
               <summary class="summary-debug-hugo">{{ if ne . "os-stat" }}{{ . | humanize | title }}{{ else }}os.Stat{{ end }}</summary>
-    {{- partial (printf "helpers/debug-tables/tables/%s" .) (dict "Page" $curPage "basePage" $basePage "Site" $curSite  "baseSite" $baseSite ) }}
+    {{- partial (printf "helpers/debug-tables/tables/%s" .) (dict "Page" $curPage "basePage" $basePage "Site" $curSite "baseSite" $baseSite ) }}
             </details>
 {{- end }}
             <details class="details-debug-hugo debug-acknowledgements-hugo">
