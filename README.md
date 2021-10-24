@@ -153,13 +153,15 @@ And of course if you wanted you could add ``"development"`` and/or ``"production
 
 ## Test CSS Styling
 
-A test CSS file is available in ``static/css/demo-css-hugo-debug-tables.css``. To use it place a line such as the following:
+A test CSS file is available in ``assets/css/hugo-debug-tables/debug-demo.css``. To use it place a line such as the following:
 
 ```go
 {{- partial "helpers/debug-tables/debug-head-snippet" . -}}
 ```
 
 in the ``<head>`` section of your layout(s).
+
+Note that this partial adds the above CSS as a resource to a variable ``$addToCSS`` (which must be defined prior to the partial). It assumed that ``$addToCSS`` is processed by Hugo Pipes in order to include the above CSS in the output CSS. If that is not what you want, you may handle the CSS file yourself using Hugo Pipes.
 
 ### A Note on Navigation
 
