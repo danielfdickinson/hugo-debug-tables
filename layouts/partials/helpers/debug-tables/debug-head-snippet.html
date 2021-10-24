@@ -1,3 +1,6 @@
-{{- if in (default (slice "development") (.Param "debugTableEnvironment")) hugo.Environment }}
-    <link rel="stylesheet" href="/css/demo-css-hugo-debug-tables.css" />
+{{- $debugTablesCSS := resources.Get "css/hugo-debug-tables/debug-demo.css" -}}
+{{- if and $debugTablesCSS (in (default (slice "development") (.Param "debugTableEnvironment")) hugo.Environment) }}
+    {{- return $debugTablesCSS -}}
+{{- else -}}
+    {{- return -}}
 {{- end }}
