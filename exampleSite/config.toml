@@ -1,4 +1,4 @@
-baseURL = "https://example.com/"
+baseURL = "https://hugo-test-debug-tables.wildtechgarden.ca/"
 copyright = "© 2021-2022 Daniel F. Dickinson"
 defaultContentLanguage = "en"
 homepage = "https://hugo-test-debug-tables.wildtechgarden.ca/"
@@ -38,12 +38,12 @@ summaryLength = 25
 
 [author]
   name = "Daniel F. Dickinson"
-  homepage = "https://www.wildtechgarden.ca/"
+  homepage = "https://www.wildtechgarden.ca/about/"
   email = "dfdpublic@wildtechgarden.ca"
 
   [[ author.authors ]]
     name = "Daniel F. Dickinson"
-    homepage = "https://www.wildtechgarden.ca/"
+    homepage = "https://www.wildtechgarden.ca/about/"
     email = "dfdpublic@wildtechgarden.ca"
 
 [taxonomies]
