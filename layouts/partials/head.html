@@ -1,0 +1,41 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title | default site.Title }}</title>
+    {{- $combinedCSS := (slice) -}}
+    {{- if ne (.Param "testStylesInclude") false }}
+        {{- $mainCSS := resources.Get "/css/test-minimal-dfd.css" -}}
+        {{- if not $mainCSS -}}
+            {{- errorf "/css/test-minimal-dfd.css is missing" -}}
+        {{- end -}}
+        {{- $combinedCSS = $combinedCSS | append $mainCSS -}}
+        {{- $debugTablesCSS := partial "helpers/debug-tables/debug-head-snippet" . -}}
+        {{- if $debugTablesCSS -}}
+            {{- $combinedCSS = $combinedCSS | append $debugTablesCSS -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $customCSS := resources.Match "/css/custom/*.css" -}}
+    {{- if $customCSS -}}
+        {{- $combinedCSS = $combinedCSS | append $customCSS -}}
+    {{- end -}}
+    {{- if gt (len $combinedCSS) 0 }}
+    <link rel="stylesheet" href="{{ ($combinedCSS | resources.Concat "/css/minimal-test-hugo-dfd.css").Permalink }}">        
+    {{- end }}
+    {{ replace (hugo.Generator) " /" "" | safeHTML -}}
+    {{- if eq (.Param "useBaseUrl") true -}}{{- if $.Site.BaseURL }}
+    <base href="{{ $.Site.BaseURL }}">{{- end }}{{- end }}
+    {{- $description := .Description -}}
+    {{- if .IsPage -}}
+        {{- $description = ($description | default .Params.description | default .Params.summary | default .Summary) -}}
+    {{- else -}}
+        {{- $description = ($description | default .Site.Params.description | default .Site.Params.summary) -}}
+    {{- end -}}
+    {{- if .File -}}
+        {{- $description = replaceRE " +" " " (replaceRE "(\n|\r)" " " ($description | .RenderString | plainify)) -}}
+    {{- else -}}
+        {{- $description = replaceRE " +" " " (replaceRE "(\n|\r)" " " ($description | markdownify | plainify)) -}}
+    {{- end }}
+    {{- with $description }}
+    <meta name="description" content="{{ . }}">
+    {{- end }}
+</head>
