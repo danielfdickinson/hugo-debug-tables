@@ -1,12 +1,8 @@
-/exampleSite/public/
-/exampleSite/resources/
-/resources/
-.netlify
-/netlify.log
+.hugo
+public
+resources
 node_modules
-# For debugging using Netlify CLI (netlify dev command)
-/.env
-# For keeping the .env file around when not using it
-/.disabled-env
-/_vendor
-/public
+.hugo_build.lock
+html-validate.log
+check-links.log
+hugo-audit.log

@@ -73,6 +73,8 @@ summaryLength = 25
     disabled = true
 
 [module]
+  replacements = "github.com/danielfdickinson/hugo-debug-tables -> ../.."
+
   [[module.imports]]
     path = "github.com/danielfdickinson/hugo-debug-tables"
 
@@ -105,4 +107,4 @@ summaryLength = 25
       target = "archetypes"
 
   [[module.imports]]
-    path = "github.com/danielfdickinson/hugo-dfd-demo-site-theme"
+    path = "github.com/danielfdickinson/minimal-test-theme-hugo-dfd"
