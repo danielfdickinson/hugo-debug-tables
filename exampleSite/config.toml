@@ -5,6 +5,7 @@ homepage = "https://hugo-test-debug-tables.wildtechgarden.ca/"
 enableGitInfo = true
 enableRobotsTXT = true
 summaryLength = 25
+disableKinds = ["sitemap"]
 
 [params]
   debugTableEnvironment = ["production","development"]
