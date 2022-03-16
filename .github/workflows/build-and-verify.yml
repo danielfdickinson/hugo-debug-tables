@@ -98,13 +98,11 @@ jobs:
           DOWNLOAD_SITE_FILENAME: hugo-site.tar
         run: tar -xf "${DOWNLOAD_SITE_FILENAME}"
       - name: "Deploy Minified Site"
-        uses: milanmk/actions-file-deployer@1.10
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          local-path: public
-          remote-protocol: "sftp"
-          remote-port: "22712"
-          remote-host: "wtgapexredirect.wildtechgarden.ca"
-          remote-user: "debugtables"
-          ssh-private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          sync: full
-          remote-path: "/var/www/hugo-debug-tables.wildtechgarden.ca"
+          local_path: './public/*'
+          port: "22712"
+          server: "wtgapexredirect.wildtechgarden.ca"
+          ssh_private_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          remote_path: "/var/www/hugo-debug-tables.wildtechgarden.ca"
+          username: "debugtables"
