@@ -69,38 +69,42 @@ jobs:
           entry-point: index.html
           upload-logs-as: check-links-failure
           upload-logs-retention: 3
-  # build-minified-site:
-  #   needs:
-  #     - validate-unminified-html
-  #     - check-links
-  #   runs-on: ubuntu-20.04
-  #   if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
-  #   steps:
-  #     - name: "Build Site with Hugo and Audit"
-  #       uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.0
-  #       with:
-  #         entry-point: index.html
-  #         upload-site-as: minified-site
-  #         use-lfs: false
-  # deploy-minified-site:
-  #   needs:
-  #     - build-minified-site
-  #   runs-on: ubuntu-20.04
-  #   if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
-  #   steps:
-  #     - name: "Install Hugo"
-  #       uses: peaceiris/actions-hugo@v2
-  #       with:
-  #         hugo-version: "latest"
-  #         extended: true
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/download-artifact@v2
-  #       with:
-  #         name: minified-site
-  #     - name: "Extract site and configs"
-  #       shell: bash
-  #       env:
-  #         DOWNLOAD_SITE_FILENAME: hugo-site.tar
-  #       run: tar -xf "${DOWNLOAD_SITE_FILENAME}"
-  #     - name: "Deploy Minified Site"
-  #       shell: bash
+  build-minified-site:
+    needs:
+      - validate-unminified-html
+      - check-links
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+    steps:
+      - name: "Build Site with Hugo and Audit"
+        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.0
+        with:
+          entry-point: index.html
+          upload-site-as: minified-site
+          use-lfs: false
+          source-directory: exampleSite
+  deploy-minified-site:
+    needs:
+      - build-minified-site
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: minified-site
+      - name: "Extract site and configs"
+        shell: bash
+        env:
+          DOWNLOAD_SITE_FILENAME: hugo-site.tar
+        run: tar -xf "${DOWNLOAD_SITE_FILENAME}"
+      - name: "Deploy Minified Site"
+        uses: milanmk/actions-file-deployer@v1.10
+        with:
+          local-path: public
+          remote-protocol: "sftp"
+          remote-port: "22712"
+          remote-host: "wtgapexredirect.wildtechgarden.ca"
+          remote-user: "debugtables"
+          ssh-private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          sync: full
+          remote-path: "/var/www/hugo-debug-tables.wildtechgarden.ca"
