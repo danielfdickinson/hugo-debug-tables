@@ -38,11 +38,13 @@ summaryLength = 25
 
 [author]
   name = "Daniel F. Dickinson"
-  homepage = "https://www.danielfdickinson.ca/"
+  homepage = "https://www.wildtechgarden.ca/"
+  email = "dfdpublic@wildtechgarden.ca"
 
   [[ author.authors ]]
     name = "Daniel F. Dickinson"
-    homepage = "https://www.danielfdickinson.ca/"
+    homepage = "https://www.wildtechgarden.ca/"
+    email = "dfdpublic@wildtechgarden.ca"
 
 [taxonomies]
   category = "categories"

@@ -23,7 +23,8 @@ Idea and initial HTML sources from
   * This looks interesting as it is an overlay over the page, and the variables are curated rather than an alphabetical full dump.
   * On the downside, it looks like more work to use this.
 * [Hugo Debug Print](https://github.com/kaushalmodi/hugo-debugprint/)
-* [David's Neighbour Org Debug Module](https://github.com/dnb-org/dnb-hugo-debug) - Adds debug to ``hugo`` run rather than embedded in the site.
+* [David's Neighbour Org Debug Module](https://github.com/dnb-org/dnb-hugo-debug)
+  * Adds debug to ``hugo`` run rather than embedded in the site.
 
 See also [Discussions on the Hugo forum, from the Hugo Debug Bar repository](https://github.com/JugglerX/hugo-debug-bar#discussions)
 
