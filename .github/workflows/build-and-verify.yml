@@ -98,7 +98,7 @@ jobs:
           DOWNLOAD_SITE_FILENAME: hugo-site.tar
         run: tar -xf "${DOWNLOAD_SITE_FILENAME}"
       - name: "Deploy Minified Site"
-        uses: milanmk/actions-file-deployer@v1.10
+        uses: milanmk/actions-file-deployer@1.10
         with:
           local-path: public
           remote-protocol: "sftp"
