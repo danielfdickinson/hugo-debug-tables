@@ -36,7 +36,7 @@ See also [Discussions on the Hugo forum, from the Hugo Debug Bar repository](htt
 To use the full list of available debug tables as a partial in your layouts, simply add:
 
 ```go
-{{ partial "helpers/layouts/debug-tables/debug-tables-list" . }}
+{{ partial "helpers/debug-tables/debug-tables-list" . }}
 ```
 
 in the layout(s) used for the page(s) on which want the tables to appear.
