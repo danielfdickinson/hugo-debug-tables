@@ -1,0 +1,106 @@
+---
+name: build-and-verify
+on:
+  pull_request:
+    types:
+      - assigned
+      - opened
+      - synchronize
+      - reopened
+  push:
+    branches:
+      - 'feature**'
+      - main
+      - 'staging**'
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE'
+      - '.gitignore'
+      - '.vscode'
+      - 'scripts'
+jobs:
+  check-source-code-validity:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Verify content formatting validity (Markdown lint)"
+        uses: DavidAnson/markdownlint-cli2-action@v5
+        with:
+          globs: |
+            README.md
+            exampleSite/content/*/*.md
+            exampleSite/content/**/*.md
+  build-unminified-site:
+    needs: check-source-code-validity
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        hugo: ["0.81.0", "0.88.1", "latest"]
+    steps:
+      - name: "Build Site with Hugo and Audit"
+        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.0
+        with:
+          hugo-version: ${{ matrix.hugo }}
+          upload-site-as: unminified-site-${{ matrix.hugo }}
+          use-lfs: false
+          source-directory: exampleSite
+  validate-unminified-html:
+    needs: build-unminified-site
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        hugo: ["0.81.0", "0.88.1", "latest"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Validate site HTML"
+        uses: danielfdickinson/validate-html-action-hugo-dfd@v0.2.1
+        with:
+          download-site-as: unminified-site-${{ matrix.hugo }}
+  check-links:
+    needs: build-unminified-site
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Check internal links"
+        uses: danielfdickinson/link-check-action-hugo-dfd@v0.2.4
+        with:
+          canonical-root: https://hugo-debug-tables.wildtechgarden.ca/
+          download-site-as: unminified-site-latest
+          entry-point: index.html
+          upload-logs-as: check-links-failure
+          upload-logs-retention: 3
+  # build-minified-site:
+  #   needs:
+  #     - validate-unminified-html
+  #     - check-links
+  #   runs-on: ubuntu-20.04
+  #   if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+  #   steps:
+  #     - name: "Build Site with Hugo and Audit"
+  #       uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.0
+  #       with:
+  #         entry-point: index.html
+  #         upload-site-as: minified-site
+  #         use-lfs: false
+  # deploy-minified-site:
+  #   needs:
+  #     - build-minified-site
+  #   runs-on: ubuntu-20.04
+  #   if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+  #   steps:
+  #     - name: "Install Hugo"
+  #       uses: peaceiris/actions-hugo@v2
+  #       with:
+  #         hugo-version: "latest"
+  #         extended: true
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/download-artifact@v2
+  #       with:
+  #         name: minified-site
+  #     - name: "Extract site and configs"
+  #       shell: bash
+  #       env:
+  #         DOWNLOAD_SITE_FILENAME: hugo-site.tar
+  #       run: tar -xf "${DOWNLOAD_SITE_FILENAME}"
+  #     - name: "Deploy Minified Site"
+  #       shell: bash
