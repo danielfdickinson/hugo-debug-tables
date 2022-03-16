@@ -2,7 +2,7 @@
 
 ## Status
 
-TBD
+[![build-and-verify](https://github.com/danielfdickinson/hugo-debug-tables/actions/workflows/build-and-verify.yml/badge.svg)](https://github.com/danielfdickinson/hugo-debug-tables/actions/workflows/build-and-verify.yml)
 
 ## About
 
