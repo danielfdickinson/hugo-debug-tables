@@ -105,4 +105,4 @@ jobs:
           server: ${{ secrets.DEPLOY_SFTP_HOSTNAME }}
           ssh_private_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           remote_path: ${{ secrets.DEPLOY_SFTP_REMOTE_PATH }}
-          username: ${{ secrets.DEPLOY_SFT_USERNAME }}
+          username: ${{ secrets.DEPLOY_SFTP_USERNAME }}
