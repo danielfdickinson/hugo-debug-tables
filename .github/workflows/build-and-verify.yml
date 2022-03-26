@@ -85,6 +85,7 @@ jobs:
   deploy-minified-site:
     needs:
       - build-minified-site
+    environment: debug-tables-production
     runs-on: ubuntu-20.04
     if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
     steps:
@@ -100,8 +101,8 @@ jobs:
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
           local_path: './public/*'
-          port: "22712"
-          server: "wtgapexredirect.wildtechgarden.ca"
+          port: ${{ secrets.DEPLOY_SFTP_PORT }}
+          server: ${{ secrets.DEPLOY_SFTP_HOSTNAME }}
           ssh_private_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          remote_path: "/var/www/hugo-debug-tables.wildtechgarden.ca"
-          username: "debugtables"
+          remote_path: ${{ secrets.DEPLOY_SFTP_REMOTE_PATH }}
+          username: ${{ secrets.DEPLOY_SFT_USERNAME }}
