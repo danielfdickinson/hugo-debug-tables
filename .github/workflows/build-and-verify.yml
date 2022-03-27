@@ -38,7 +38,7 @@ jobs:
         hugo: ["0.81.0", "0.88.1", "latest"]
     steps:
       - name: "Build Site with Hugo and Audit"
-        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.0
+        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.1-beta.1
         with:
           hugo-version: ${{ matrix.hugo }}
           upload-site-as: unminified-site-${{ matrix.hugo }}
@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: "Validate site HTML"
-        uses: danielfdickinson/validate-html-action-hugo-dfd@v0.2.2-beta.1
+        uses: danielfdickinson/validate-html-action-hugo-dfd@v0.2.2-beta.4
         with:
           download-site-as: unminified-site-${{ matrix.hugo }}
   check-links:
@@ -62,7 +62,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: "Check internal links"
-        uses: danielfdickinson/link-check-action-hugo-dfd@v0.2.5-beta.1
+        uses: danielfdickinson/link-check-action-hugo-dfd@v0.2.5-beta.2
         with:
           canonical-root: https://hugo-debug-tables.wildtechgarden.ca/
           download-site-as: unminified-site-latest
@@ -77,7 +77,7 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
     steps:
       - name: "Build Site with Hugo and Audit"
-        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.0
+        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2.1-beta.1
         with:
           upload-site-as: minified-site
           use-lfs: false
