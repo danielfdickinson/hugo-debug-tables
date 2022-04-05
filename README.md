@@ -220,7 +220,7 @@ Two types of classes available:
 
 If [your issue can't be found when searching both open and closed issues](https://github.com/danielfdickinson/hugo-debug-tables/issues?q=is%3Aissue), please add it!
 
-Please [check open issues on danielfdickinson/minimal-test-theme-hugo-dfd](https://github.com/danielfdickinson/hugo-debug-tables/issues)
+Please [check open issues on danielfdickinson/hugo-debug-tables](https://github.com/danielfdickinson/hugo-debug-tables/issues)
 for enhancements and bugs that you would like resolved, write the fix, and submit a PR!
 
 Documenting this is always hand as well.
