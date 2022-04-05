@@ -215,3 +215,14 @@ Two types of classes available:
 | debug-pages-hugo            | Added to any top-level wrapper around a list of .Pages |
 | debug-sites-hugo            | Added to any top-level wrapper around a list of .Sites |
 | debug-variables-hugo        | Added to top-level wrapper \<section> element when displaying all tables |
+
+## Contributions Welcome
+
+If [your issue can't be found when searching both open and closed issues](https://github.com/danielfdickinson/hugo-debug-tables/issues?q=is%3Aissue), please add it!
+
+Please [check open issues on danielfdickinson/minimal-test-theme-hugo-dfd](https://github.com/danielfdickinson/hugo-debug-tables/issues)
+for enhancements and bugs that you would like resolved, write the fix, and submit a PR!
+
+Documenting this is always hand as well.
+
+Thank you, and I hope you find this repository useful.
