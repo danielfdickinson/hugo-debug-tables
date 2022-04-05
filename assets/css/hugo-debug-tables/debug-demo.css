@@ -4,7 +4,9 @@
 }
 
 .details-debug-hugo {
+    background-color: #f4f4f4;
     border: none;
+    color: #202020;
     margin-bottom: .5em;
     margin-top: 2px;
     padding: .4em;
@@ -38,8 +40,8 @@ li.details-debug-hugo > span.summary-debug-hugo {
 
 .debug-variables-hugo > .details-debug-hugo > .summary-debug-hugo {
     border-bottom-style: none;
+    font-style: oblique;
     margin-bottom: 3px;
-    opacity: .3;
 }
 
 .debug-variables-hugo > .details-debug-hugo[open] {
@@ -51,7 +53,7 @@ li.details-debug-hugo > span.summary-debug-hugo {
 .debug-variables-hugo > .details-debug-hugo[open] > .summary-debug-hugo {
     border-bottom: 3px ridge;
     border-top: 3px ridge;
-    font-style: italic;
+    font-style: normal;
     font-weight: bold;
     opacity: 1;
     padding: initial;
@@ -186,15 +188,6 @@ li.details-debug-hugo > span.summary-debug-hugo {
     padding: 0;
 }
 
-.table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .table-debug-table {
-    background-color: #fff;
-}
-
-.table-debug-hugo > tbody > .table-row-debug-hugo > .table-cell-debug-hugo > .details-debug-hugo[open] {
-    background-color: #fff;
-    border: 0 none;
-}
-
 .table-cell-debug-hugo .details-debug-hugo[open] > .summary-debug-hugo {
     margin: 0;
     margin-bottom: 4px;
@@ -222,7 +215,8 @@ li.details-debug-hugo > span.summary-debug-hugo {
 }
 
 .details-debug-hugo[open] .details-debug-hugo[open] .details-debug-hugo[open] .code-debug-hugo {
-    background-color: #ddd;
+    background-color: #dfdfdf;
+    color: #1d1d1d;
     display: block;
 }
 
