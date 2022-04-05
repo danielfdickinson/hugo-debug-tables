@@ -30,11 +30,7 @@
     {{- else -}}
         {{- $description = ($description | default .Site.Params.description | default .Site.Params.summary) -}}
     {{- end -}}
-    {{- if .File -}}
-        {{- $description = replaceRE " +" " " (replaceRE "(\n|\r)" " " ($description | .RenderString | plainify)) -}}
-    {{- else -}}
-        {{- $description = replaceRE " +" " " (replaceRE "(\n|\r)" " " ($description | markdownify | plainify)) -}}
-    {{- end }}
+    {{- $description = replaceRE " +" " " (replaceRE "(\n|\r)" " " ($description | .RenderString | plainify)) -}}
     {{- with $description }}
     <meta name="description" content="{{ . }}">
     {{- end }}
