@@ -5,7 +5,7 @@
 {{- $baseSite := .Site -}}
 <section class="section-debug-hugo debug-variables-hugo" aria-label="Hugo Debug Section">
     <details class="details-debug-hugo">
-        <summary class="summary-debug-hugo">Hugo Debug Table</summary>
+        <summary class="summary-debug-hugo">Hugo debug table</summary>
         <div class="list-debug-hugo debug-tables">
 {{- $tablesToShow := (slice "page") -}}
 {{- $tablesToShow = $tablesToShow | append "section" -}}
@@ -26,9 +26,13 @@
 {{- end }}
             <details class="details-debug-hugo debug-acknowledgements-hugo">
                 <summary class="summary-debug-hugo">Acknowledgements</summary>
-                <div class="list-debug-hugo">
-                    <p class="list-item-debug-hugo"><i>Idea for debug table and initial HTML source from <a href="https://raw.githubusercontent.com/zwbetz-gh/starter-hugo-debug-site/master/layouts/partials/debug-table.html">zwbetz-gh/starter-hugo-debug-site debug-table</a></i></p>
-                    <p class="list-item-debug-hugo"><i>Current version from <a href="https://github.com/danielfdickinson/hugo-debug-tables">github.com/danielfdickinson/hugo-debug-tables</a></i></p>
+                <div class="table-debug-hugo">
+                    <div class="table-row-debug-hugo">
+                        <div class="table-cell-debug-hugo">
+                            <p><i>Idea for debug table and initial HTML source from <a href="https://raw.githubusercontent.com/zwbetz-gh/starter-hugo-debug-site/master/layouts/partials/debug-table.html">zwbetz-gh/starter-hugo-debug-site debug-table</a></i></span></p>
+                            <p><i>Current version from <a href="https://github.com/danielfdickinson/hugo-debug-tables">github.com/danielfdickinson/hugo-debug-tables</a></i></span></p>
+                        </div>
+                    </div>
                 </div>
             </details>
         </div>
