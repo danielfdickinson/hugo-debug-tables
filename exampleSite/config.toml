@@ -3,9 +3,9 @@ copyright = "© 2021-2022 Daniel F. Dickinson"
 defaultContentLanguage = "en"
 homepage = "https://hugo-test-debug-tables.wildtechgarden.ca/"
 enableGitInfo = true
-enableRobotsTXT = true
+enableRobotsTXT = false
 summaryLength = 25
-disableKinds = ["sitemap"]
+disableKinds = ["sitemap","RSS"]
 
 [params]
   debugTableEnvironment = ["production","development"]
