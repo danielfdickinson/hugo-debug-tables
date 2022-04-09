@@ -1,4 +1,4 @@
-# Hugo Debug Tables
+# Hugo debug tables
 
 ## Status
 
@@ -10,7 +10,7 @@ A [Hugo](https://gohugo.io) module / theme component that adds partials and a sh
 
 REOPENED: Based on a request this repo does seem to be useful to some as a tool for learning some of Hugo's internal state for pages/sites, so I have reopened it to submissions and activity. It's getting a little bit if updating, bt mostly I don't need it for myself, so improvement will mostly occur based on input from those who let me know via Pull Requests, Discussions, or Issues (as appropriate).
 
-### Modern Hugo Only (as of 2021-03-20)
+### Modern Hugo only (as of 2021-03-20)
 
 This module is built using assumptions that may require Hugo 0.81.0 or higher, and in any event those are the only versions on which it has been tested, at present.
 
@@ -19,7 +19,7 @@ This module is built using assumptions that may require Hugo 0.81.0 or higher, a
 Idea and initial HTML sources from
 [zwbetz-gh/starter-hugo-debug-site debug-table](https://github.com/zwbetz-gh/starter-hugo-debug-site/blob/master/layouts/partials/debug-table.html)
 
-### Alternative Approaches
+### Alternative approaches
 
 * [Hugo Debug Bar](https://github.com/JugglerX/hugo-debug-bar)
   * This looks interesting as it is an overlay over the page, and the variables are curated rather than an alphabetical full dump.
@@ -30,11 +30,11 @@ Idea and initial HTML sources from
 
 See also [Discussions on the Hugo forum, from the Hugo Debug Bar repository](https://github.com/JugglerX/hugo-debug-bar#discussions)
 
-## Using in Your Theme or Site
+## Using in Your theme or site
 
-### Full Set of Tables
+### Full set of tables
 
-#### As a Partial in Layouts
+#### As a partial in layouts
 
 To use the full list of available debug tables as a partial in your layouts, simply add:
 
@@ -44,7 +44,7 @@ To use the full list of available debug tables as a partial in your layouts, sim
 
 in the layout(s) used for the page(s) on which want the tables to appear.
 
-#### As a Shortcode in a Content Page
+#### As a shortcode in a content page
 
 To use the full list of available debug tables as a shortcode on a page in your content pages, simply add:
 
@@ -56,7 +56,7 @@ to the page on which you want the table, under your site's ``content/`` director
 
 **NOTE:** This will only work if the content page in question actually gets rendered. (Many section layouts, for instance, do not render ``.Content`` and therefore this shortcode would not work with those layouts).
 
-### Using Individual Tables
+### Using individual tables
 
 #### As a partial
 
@@ -85,11 +85,11 @@ Where 'site' is one of ``page, section, file, site, taxonomy, hugo, os-stat``.
 
 Note that for the shortcode, only ``.RawContent`` renders, not ``.Content``, ``.Plain``, or other rendered content for the current page (in the table produced by the shortcode).
 
-## Adding the Code to Your Site or Theme
+## Adding the code to your site or theme
 
 1. Get a copy of the code for, and switch to the directory for your site or theme.
 
-### Using Hugo Modules (preferred)
+### Using Hugo modules (preferred)
 
 1. Initialize the Hugo module system: ``hugo mod init github.com/<your_user>/<your_project>`` (assuming you are using github, of course).
 2. Import hugo-debug-tables in your ``config.toml``
@@ -109,13 +109,13 @@ Note that for the shortcode, only ``.RawContent`` renders, not ``.Content``, ``.
 
 5. Add the code (above) for using the tables to your source code.
 
-### Using downloaded copy of the module (e.g. Zip from the Git repo)
+### Using downloaded copy of the module (e.g. zip from the git repo)
 
 1. Obtain a copy of the module e.g. ([a module Zip file from the Git repo](https://github.com/danielfdickinson/hugo-debug-tables/archive/refs/heads/main.zip))
 2. Copy/extract the files in the archive into the root of your site or theme (archives contain /layouts and subdirectories under it).
 3. Change back to the site directory
 
-### Run the Hugo Server
+### Run the Hugo server
 
 1. To test the result, run the local Hugo server (assumes you have a theme or layouts in your site)
 
@@ -123,14 +123,14 @@ Note that for the shortcode, only ``.RawContent`` renders, not ``.Content``, ``.
    hugo server -b http://localhost:1313/
    ```
 
-## Currently Debug Tables Only Added in "Development" Mode
+## Current default is for debug tables only added for "development"
 
 The code is currently designed to only add the debug tables if running Hugo in "development" mode.
 That means it will, by default, be added when using ``hugo server`` but not a regular build with ``hugo`` (and only if you call the partial or shortcode, of course).
 
-### Change Debug Table from Development Only
+### Change debug table from development only
 
-#### To add to production builds
+#### To use for both development and production builds
 
 In ``config.toml`` add
 
@@ -159,7 +159,7 @@ In ``config.toml`` add
 
 And of course if you wanted you could add ``"development"`` and/or ``"production"``
 
-## Test CSS Styling
+## Test CSS styling
 
 A test CSS file is available in ``assets/css/hugo-debug-tables/debug-demo.css``. To use it place a line such as the following:
 
@@ -171,11 +171,11 @@ in the ``<head>`` section of your layout(s).
 
 Note that this partial adds the above CSS as a resource to a variable ``$addToCSS`` (which must be defined prior to the partial). It assumed that ``$addToCSS`` is processed by Hugo Pipes in order to include the above CSS in the output CSS. If that is not what you want, you may handle the CSS file yourself using Hugo Pipes.
 
-### A Note on Navigation
+### A note on navigation
 
 Details (disclosure elements) embedded inside a another table create a new layer above the current table when opened. To get rid of the new layer and close the table, close the details (disclosure) element that appears above the table or other disclosure content.
 
-## CSS Classes Available for Styling the Debug Tables
+## CSS classes available for styling the debug tables
 
 Two types of classes available:
 
@@ -188,7 +188,7 @@ Two types of classes available:
   * E.g. ``debug-pages-hugo`` which is wrapped around HTML for page lists/tables
   * Always begin with ``debug`` and end in ``hugo``. The middle is a single word (no hyphens).
 
-### Element Classes
+### Element classes
 
 | Class                       | Description                                 |
 |-----------------------------|---------------------------------------------|
@@ -204,7 +204,7 @@ Two types of classes available:
 | table-cell-head-debug-hugo  | Added to any table heading cell (e.g. \<th>) |
 | table-cell-debug-hugo       | Added to any regular table cell (e.g. \<td>) |
 
-### Category/Purpose Classes
+### Category/purpose classes
 
 | Class                       | Description                                 |
 |-----------------------------|---------------------------------------------|
@@ -216,13 +216,15 @@ Two types of classes available:
 | debug-sites-hugo            | Added to any top-level wrapper around a list of .Sites |
 | debug-variables-hugo        | Added to top-level wrapper \<section> element when displaying all tables |
 
-## Contributions Welcome
+## Contributions welcome
 
 If [your issue can't be found when searching both open and closed issues](https://github.com/danielfdickinson/hugo-debug-tables/issues?q=is%3Aissue), please add it!
 
 Please [check open issues on danielfdickinson/hugo-debug-tables](https://github.com/danielfdickinson/hugo-debug-tables/issues)
 for enhancements and bugs that you would like resolved, write the fix, and submit a PR!
 
-Documenting this is always hand as well.
+Adding and improving documention is always handy as well.
 
-Thank you, and I hope you find this repository useful.
+## Support and general questions
+
+Please use [GitHub Discussions](https://github.com/danielfdickinson/hugo-debug-tables/discussions) for support and general questions.

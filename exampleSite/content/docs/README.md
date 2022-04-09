@@ -1,5 +1,5 @@
 ---
-title: "Hugo Debug Tables README"
+title: "Hugo debug tables README"
 author: Daniel F. Dickinson
 categories:
     - Documentation

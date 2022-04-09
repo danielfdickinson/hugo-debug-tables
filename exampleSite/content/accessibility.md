@@ -18,6 +18,6 @@ Obviously there is a lot of work to do on this site, in that respect.
 
 A more difficult challenge is to use language that is less complex, while saying everything I want to say. That is a longer term project.
 
-## Navigation Notes
+## Navigation notes
 
 [We never open links in new tabs, use "Open link in new tab" in your browser if you want that](https://www.wildtechgarden.ca/blog/accessible-design-no-blank/). ([#dontbreakthebackbutton](https://www.linkedin.com/feed/hashtag/?keywords=dontbreakthebackbutton))
