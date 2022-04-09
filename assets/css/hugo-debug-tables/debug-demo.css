@@ -161,7 +161,7 @@ li.details-debug-hugo > span.summary-debug-hugo {
     border-right: 2px solid;
     margin-bottom: 1em;
     table-layout: fixed;
-    width: 100%;
+    width: auto;
 }
 
 .table-debug-hugo .table-cell-head-debug-hugo {
