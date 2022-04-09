@@ -1,8 +1,11 @@
 {
     "version": "0.2",
     "ignorePaths": [],
-    "words": [],
+    "words": [
+        "Uncategorized"
+    ],
     "ignoreWords": [
+        "dontbreakthebackbutton",
         "wlixcc",
         "zwbetz"
     ]
