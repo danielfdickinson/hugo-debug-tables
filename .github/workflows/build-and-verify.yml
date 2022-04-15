@@ -34,7 +34,7 @@ jobs:
         hugo: ["0.81.0", "0.88.1", "latest"]
     steps:
       - name: "Build Site with Hugo and Audit"
-        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2
+        uses: danielfdickinson/build-audit-action-hugo-dfd@main
         with:
           hugo-version: ${{ matrix.hugo }}
           upload-site-as: unminified-site-${{ matrix.hugo }}
@@ -71,7 +71,7 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
     steps:
       - name: "Build Site with Hugo and Audit"
-        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2
+        uses: danielfdickinson/build-audit-action-hugo-dfd@main
         with:
           upload-site-as: minified-site
           use-lfs: false
