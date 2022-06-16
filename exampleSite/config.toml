@@ -37,15 +37,10 @@ disableKinds = ["sitemap","RSS"]
         url = "/accessibility/"
         weight = 20
 
-[author]
-  name = "Daniel F. Dickinson"
-  homepage = "https://www.wildtechgarden.ca/about/"
-  email = "dfdpublic@wildtechgarden.ca"
-
-  [[ author.authors ]]
-    name = "Daniel F. Dickinson"
-    homepage = "https://www.wildtechgarden.ca/about/"
-    email = "dfdpublic@wildtechgarden.ca"
+[[ author.authors ]]
+name = "Daniel F. Dickinson"
+homepage = "https://www.wildtechgarden.ca/about/"
+email = "dfdpublic@wildtechgarden.ca"
 
 [taxonomies]
   category = "categories"
