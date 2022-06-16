@@ -77,16 +77,8 @@ email = "dfdpublic@wildtechgarden.ca"
     path = "github.com/danielfdickinson/hugo-debug-tables"
 
     [[module.imports.mounts]]
-      source = "static"
-      target = "static"
-
-    [[module.imports.mounts]]
       source = "layouts"
       target = "layouts"
-
-    [[module.imports.mounts]]
-      source = "data"
-      target = "data"
 
     [[module.imports.mounts]]
       source = "assets"
@@ -106,3 +98,7 @@ email = "dfdpublic@wildtechgarden.ca"
 
   [[module.imports]]
     path = "github.com/danielfdickinson/minimal-test-theme-hugo-dfd"
+
+  [[module.mounts]]
+  source = "content"
+  target  = "content"
