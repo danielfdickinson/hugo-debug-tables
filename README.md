@@ -49,7 +49,7 @@ in the layout(s) used for the page(s) on which want the tables to appear.
 To use the full list of available debug tables as a shortcode on a page in your content pages, simply add:
 
 ```go
-{{\< helpers/hugo-debug-tables >}}
+{{</* helpers/hugo-debug-tables */>}}
 ```
 
 to the page on which you want the table, under your site's ``content/`` directory.
@@ -78,7 +78,7 @@ So, for example to emit the site table, one would use:
 E.g.
 
 ```go
-{{\< helpers/hugo-debug-tables table="site" >}}
+{{</* helpers/hugo-debug-tables table="site" */>}}
 ```
 
 Where 'site' is one of ``page, section, file, site, taxonomy, hugo, os-stat``.
