@@ -71,7 +71,7 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
     steps:
       - name: "Build Site with Hugo and Audit"
-        uses: danielfdickinson/build-audit-action-hugo-dfd@main
+        uses: danielfdickinson/build-audit-action-hugo-dfd@v0.2
         with:
           upload-site-as: minified-site
           use-lfs: false
