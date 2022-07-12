@@ -25,12 +25,6 @@
     {{- with .Data.Terms -}}
         {{- $dataTerms = partial "helpers/debug-tables/debug-helpers/expand-item" . -}}
     {{- end -}}
-    {{- $tableVals := (dict
-        ".Data.Singular" .Data.Singular
-        ".Data.Plural" .Data.Plural
-        ".Data.Pages" $dataPages
-        ".Data.Terms" $dataTerms
-        "See Also" ".Site.Taxonomies"
-    ) -}}
+    {{- $tableVals := (dict ".Data.Singular" .Data.Singular ".Data.Plural" .Data.Plural ".Data.Pages" $dataPages ".Data.Terms" $dataTerms "See Also" ".Site.Taxonomies") -}}
     {{- partial "helpers/debug-tables/tables/table-html" $tableVals }}
 {{- end }}

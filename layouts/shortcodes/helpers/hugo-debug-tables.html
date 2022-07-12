@@ -1,11 +1,5 @@
 {{- if not (.Get "table") -}}
     {{- partial "helpers/debug-tables/debug-tables-list" (dict "Page" .Page "Site" .Page.Site) -}}
 {{- else -}}
-    {{- partial (printf "helpers/debug-tables/tables/%s" (.Get "table")) (dict
-        "Page" .Page
-        "basePage" .Page
-        "Site" .Page.Site
-        "baseSite" .Page.Site
-        "isShortcode" true
-    ) -}}
+    {{- partial (printf "helpers/debug-tables/tables/%s" (.Get "table")) (dict "Page" .Page "basePage" .Page "Site" .Page.Site "baseSite" .Page.Site "isShortcode" true) -}}
 {{- end -}}

@@ -4,16 +4,5 @@
 {{- if .HasChildren -}}
     {{- $children = partial "helpers/debug-tables/tables/menus" .Children -}}  -}}
 {{- end -}}
-{{- $tableVals = (dict
-    ".Identifier" .Identifier
-    ".Menu" .Menu
-    ".Name" .Name
-    ".Page" .Page
-    ".Parent" .Parent
-    ".Pre" (printf "<code>%s</code>" .Pre | safeHTML)
-    ".Post" (printf "<code>%s</code>" .Post | safeHTML)
-    ".URL" .URL
-    ".Weight" .Weight
-    ".Children" ( $children | safeHTML )
-) -}}
+{{- $tableVals = (dict ".Identifier" .Identifier ".Menu" .Menu ".Name" .Name ".Page" .Page ".Parent" .Parent ".Pre" (printf "<code>%s</code>" .Pre | safeHTML) ".Post" (printf "<code>%s</code>" .Post | safeHTML) ".URL" .URL ".Weight" .Weight ".Children" ( $children | safeHTML )) -}}
 {{- partial "helpers/debug-tables/tables/table-html" $tableVals }}

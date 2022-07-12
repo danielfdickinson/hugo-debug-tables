@@ -9,9 +9,7 @@
     {{ with $sites }}
       <div class="list-debug-hugo debug-sites-hugo">
         {{ range . }}
-          {{ partial "helpers/debug-tables/debug-helpers/site-details" (dict
-            "Page" $curPage "basePage" $basePage "Site" . "baseSite" $baseSite
-        ) }}
+          {{ partial "helpers/debug-tables/debug-helpers/site-details" (dict "Page" $curPage "basePage" $basePage "Site" . "baseSite" $baseSite) }}
         {{ end }}
       </div>
     {{ end }}

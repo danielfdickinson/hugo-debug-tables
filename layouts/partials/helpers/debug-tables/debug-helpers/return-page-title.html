@@ -7,8 +7,7 @@
     {{- if .Data.Terms -}}
       {{- $titleFound = .Title -}}
     {{- else if .Data.Singular -}}
-      {{- $titleFound = printf "%s: %s"
-        (.Data.Singular | humanize) (.Title | singularize | title) -}}
+      {{- $titleFound = printf "%s: %s" (.Data.Singular | humanize) (.Title | singularize | title) -}}
     {{- else -}}
       {{- $titleFound = .Title -}}
     {{- end -}}

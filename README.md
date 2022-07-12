@@ -12,7 +12,12 @@ REOPENED: Based on a request this repo does seem to be useful to some as a tool 
 
 ### Modern Hugo only (as of 2021-03-20)
 
-This module is built using assumptions that may require Hugo 0.81.0 or higher, and in any event those are the only versions on which it has been tested, at present.
+This module is built using assumptions that may require Hugo 0.80.0 or higher, and in any event those are the only versions on which it has been tested, at present.
+
+_Note_: Previously the minimium was 0.81.0 but as of 2022-07-12 we have converted
+from multi-line constructs (like dict) to single line as that is the difference
+between supporting 0.80.0 (which is the highest version available in Debian stable,
+and various other Linux releases) and requiring at least 0.81.0.
 
 ### Acknowledgements
 

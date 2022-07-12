@@ -5,21 +5,9 @@
 {{- with $curPage -}}
     {{- $tableVals := (dict) -}}
     {{- with .File -}}
-        {{- $tableVals = (dict
-            ".File.BaseFileName" .BaseFileName
-            ".File.ContentBaseName" .ContentBaseName
-            ".File.Dir" .Dir
-            ".File.Ext" .Ext
-            ".File.Lang" .Lang
-            ".File.LogicalName" .LogicalName
-            ".File.Path" .Path
-            ".File.TranslationBaseName" .TranslationBaseName
-            ".File.UniqueID" .UniqueID
-        ) -}}
+        {{- $tableVals = (dict ".File.BaseFileName" .BaseFileName ".File.ContentBaseName" .ContentBaseName ".File.Dir" .Dir ".File.Ext" .Ext ".File.Lang" .Lang ".File.LogicalName" .LogicalName ".File.Path" .Path ".File.TranslationBaseName" .TranslationBaseName ".File.UniqueID" .UniqueID) -}}
     {{- else -}}
-        {{- $tableVals = (dict
-            "Virtual page (no content file)" true
-        ) -}}
+        {{- $tableVals = (dict "Virtual page (no content file)" true) -}}
     {{- end -}}
     {{- partial "helpers/debug-tables/tables/table-html" $tableVals }}
 {{- end }}
